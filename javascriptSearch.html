@@ -1,0 +1,53 @@
+<html>
+<head>
+<title></title>
+</head>
+<body>
+
+<input type="text" id="easy-search-input" style="width: 100%;"/>
+
+<ul>
+	<li><a href="#" class="easy-search-this">Sed quid ages tandem, si utilitas ab amicitia, ut fit saepe, defecerit?</a></li>
+	<li><a href="#" class="easy-search-this">Animadverti, ínquam, te isto modo paulo ante ponere, et scio ab Antiocho nostro dici sic solere;</a></li>
+	<li><a href="#" class="easy-search-this">Quo tandem modo?</a></li>
+	<li><a href="#" class="easy-search-this">Ita enim se Athenis collocavit, ut sit paene unus ex Atticis, ut id etiam cognomen videatur habiturus.</a></li>
+	<li><a href="#" class="easy-search-this">Sed quid ages tandem, si utilitas ab amicitia, ut fit saepe, defecerit?</a></li>
+	<li><a href="#" class="easy-search-this">Animadverti, ínquam, te isto modo paulo ante ponere, et scio ab Antiocho nostro dici sic solere;</a></li>
+	<li><a href="#" class="easy-search-this">Quo tandem modo?</a></li>
+	<li><a href="#" class="easy-search-this">Ita enim se Athenis collocavit, ut sit paene unus ex Atticis, ut id etiam cognomen videatur habiturus.</a></li>
+	<li><a href="#" class="easy-search-this">Sed quid ages tandem, si utilitas ab amicitia, ut fit saepe, defecerit?</a></li>
+	<li><a href="#" class="easy-search-this">Animadverti, ínquam, te isto modo paulo ante ponere, et scio ab Antiocho nostro dici sic solere;</a></li>
+	<li><a href="#" class="easy-search-this">Quo tandem modo?</a></li>
+	<li><a href="#" class="easy-search-this">Ita enim se Athenis collocavit, ut sit paene unus ex Atticis, ut id etiam cognomen videatur habiturus.</a></li>
+</ul>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+	$("#easy-search-input").keyup(function() {
+		var inputText = $(this).val().toLowerCase();
+		if(inputText.length === 0) {
+			$('.easy-search-this').each(function() {
+				if($(this).is(':hidden')) {
+					$(this).closest('li').show();
+				}
+			});
+		} else if(inputText.length >= 1) {
+			$('.easy-search-this').each(function() {
+				var itemText = $(this).text().toLowerCase();
+				var isItThere = itemText.search(inputText);
+
+				if (isItThere < 0) {
+					$(this).closest('li').hide();
+				} else if(isItThere >= 0 && $(this).is(':hidden')) {
+					$(this).closest('li').show();
+				}
+			});
+		}
+	});
+});
+</script>
+</body>
+</html>
+
+
